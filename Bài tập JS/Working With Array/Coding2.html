@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Challenge #2</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    var arrayOfDogs = [16, 6, 10, 5, 6, 1, 4]
+
+    function calcAverageHumanAge(dogAges) {
+        var arrayOfDogsByHumanAge = dogAges.map(dogAge => (dogAge <= 2) ? (dogAge * 2) : (16 + dogAge * 4));
+        var arrayOfDogsByHumanAgeNotUnder18 = arrayOfDogsByHumanAge.filter(element => element >= 18);
+        var averageOfArray = arrayOfDogsByHumanAgeNotUnder18.reduce((total, value) => 
+         total + value) / arrayOfDogsByHumanAgeNotUnder18.length;
+        return averageOfArray;
+    }
+    console.log(calcAverageHumanAge(arrayOfDogs));
+</script>
+
+</html>

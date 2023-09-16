@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Challenge #5</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var dolphinsScores = [85,54,41];
+    var koalasScores = [23,34,27];
+    var calcAverage = (arrayy) => {
+        var sum = 0;
+        arrayy.forEach(element => {
+            sum+=element;
+        });
+        return sum/3;
+    }
+    var averageDolphinsScore = calcAverage(dolphinsScores);
+    var averageKoalasScore = calcAverage(koalasScores);
+    console.log(averageDolphinsScore);
+    console.log(averageKoalasScore);
+    function checkWinner(avrDolphin, avrKoala){
+        var toFixDol = avrDolphin.toFixed(0);
+        var toFixKoa = avrKoala.toFixed(0);
+        var result = ((avrDolphin/avrKoala) >=2) ? `Dolphins win (${toFixDol} vs ${toFixKoa})` :
+                        ((avrKoala/avrDolphin) >=2) ? `Koalas win (${toFixKoa} vs ${toFixDol})` : "No team wins";
+        return result;
+
+    }
+    console.log(checkWinner(averageDolphinsScore,averageKoalasScore));
+</script>
+</html>

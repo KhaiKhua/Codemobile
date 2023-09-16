@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Challenge #6</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function caclTip(bill){
+        var tip = (bill >= 50 && bill <= 300) ?  (bill * (15/100)) :  (bill * (20/100));
+        return tip;
+    }
+
+    var arrayBill = [125,555,44];
+    var arrayTip = arrayBill.map(caclTip);
+    var arrayTotal = arrayBill.map((bill, i) => bill + arrayTip[i]);  
+    arrayTotal.forEach(total => {console.log(total)});
+    
+</script>
+</html>

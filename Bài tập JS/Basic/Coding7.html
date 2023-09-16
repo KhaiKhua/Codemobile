@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Challenge #7</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var objectMark = {
+        fullName: 'Mark Miller',
+        weight: 78,
+        height: 1.69  
+    }
+
+    var objectJohn = {
+        fullName: 'John Smith',
+        weight: 92,
+        height: 1.95  
+    }
+
+    function calcBMI(object){
+        var BMI = object.weight / object.height ** 2;
+        return BMI.toFixed(1);
+    }
+
+    var result = (calcBMI(objectMark) > calcBMI(objectJohn)) ? 
+    `${objectMark.fullName} BMI (${calcBMI(objectMark)}) is higher than ${objectJohn.fullName} (${calcBMI(objectJohn)})` :
+    `${objectJohn.fullName} BMI (${calcBMI(objectJohn)}) is higher than ${objectMark.fullName} (${calcBMI(objectMark)})`;
+    console.log(result)
+
+    
+</script>
+</html>

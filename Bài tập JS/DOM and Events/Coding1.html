@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Challenge #1</title>
+</head>
+<style>
+    /* #hihi{
+        background-color: aqua;
+    } */
+</style>
+<body>
+    <h1>Reset the guess</h1>
+    <div>
+        <label for="">Nhập số cần đoán</label>
+        <input type="text" value="5" class="again">
+        <button id="check">Kiểm tra</button>
+        <br> <br>
+        <label for="">Điểm số: </label>
+        <output id="diem">3</output> <br> <br>
+        <label for="">Số ngẫu nhiên: </label>
+        <output id="secret">?</output> <br> <br>
+        <button  onclick="resetNumber()">Reset Number</button> <br>
+
+    </div>
+</body>
+<script>
+    function resetNumber(){
+        document.getElementsByClassName('again')[0].value = '';
+        document.getElementById('diem').innerHTML = 0;
+        document.getElementById('secret').style.backgroundColor = '#666';
+        document.getElementById('secret').style.fontSize = 12;
+    }
+    var secretNumber = Math.floor(Math.random() * 11);
+    document.getElementById('secret').innerText = secretNumber;
+  //  alert(secretNumber);
+   //var getNumber =  document.getElementsByClassName('again')[0] ;
+  //  alert(getNumber.value);
+</script>
+</html>

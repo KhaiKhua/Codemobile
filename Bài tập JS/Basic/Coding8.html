@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Challenge #8</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function caclTip(bill){
+        var tip = (bill >= 50 && bill <= 300) ?  (bill * (15/100)) :  (bill * (20/100));
+        return tip;
+    }
+    var bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+    var tips = [];
+    bills.forEach(elementBill => {
+        tips.push(caclTip(elementBill));
+    })
+    var totals = [];
+    for(var i=0;i<bills.length;i++){
+        totals.push(bills[i] + tips[i]);
+    }
+
+    totals.forEach(element => {console.log(element)});
+
+    function calcAverage(arr){
+        var sum = 0;
+        arr.forEach(element => {
+            sum+=element;
+        })
+        return sum/arr.length;
+    }
+
+    console.log(`Average:` +calcAverage(bills));
+</script>
+</html>

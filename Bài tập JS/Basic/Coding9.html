@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Challenge #9</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var arrayForecasted = [12, 5, -5, 0, 4] ;
+    function printForecast(arr){
+        var numDay = 1;
+        arr.forEach(element => {
+            console.log(`...${element}oC in ${numDay} days ...`);
+            numDay++;
+        })
+    }
+    console.log(printForecast(arrayForecasted));
+</script>
+</html>

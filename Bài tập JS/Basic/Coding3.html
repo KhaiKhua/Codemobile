@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Challenge #3</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var dolphinsScore_1 = [100,101,100];
+    var KolasScore_1 = [100,100,101];
+    function averageArray(arrayy){
+        var sum = 0;
+        var count = 0;
+        arrayy.forEach(element => {
+            sum+=element;
+            count++;
+        });
+        return sum/count;
+    }
+    var averageDolphinsScore_1 = averageArray(dolphinsScore_1);
+    var averageKolasScore_1 = averageArray(KolasScore_1);
+    var compareScore = (averageDolphinsScore_1 > averageKolasScore_1) ? true : false;
+    var bonus1 = (averageDolphinsScore_1 >= 100 && averageKolasScore_1 >= 100) ? true : 
+                        (averageDolphinsScore_1 < 100 || averageKolasScore_1 < 100) ? true : false;
+    console.log(averageDolphinsScore_1);
+    console.log(averageKolasScore_1);
+    
+    var bonus2 = (averageDolphinsScore_1 === averageKolasScore_1 && bonus1) ? "Cùng giành cúp" :
+                    (compareScore && bonus1) ? "Dophins giành cúp" : 
+                        (!compareScore && bonus1) ? "Koalas giành cup" :
+                            (!bonus1) ? "Không đội nào giành được cup" : "";
+                            
+    console.log(bonus2);
+</script>
+</html>

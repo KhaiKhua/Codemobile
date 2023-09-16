@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Challenge #2</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var markHeight = 1.69;
+    var markWeight = 48;
+
+    var johnHeight = 1.95;
+    var johnWeight = 92;
+
+    var markBMI = (markWeight / markHeight ** 2).toFixed(1);
+    var johnBMI = (johnWeight / johnHeight ** 2).toFixed(1);
+
+    var whoHigherBMI = (markBMI > johnBMI) ? "Mark's BMI is higher than John's!" 
+                        : "John's BMI is higher than Mark's!";
+    console.log(`Mark BMI: ${markBMI}`);
+    console.log(`John BMI: ${johnBMI}`);
+    console.log(whoHigherBMI); //1
+    var whoHigherBMITemplate = (markBMI > johnBMI) ? `Mark's BMI (${markBMI}) is higher than John's (${johnBMI})!` 
+                        : `John's BMI (${johnBMI}) is higher than Mark's (${markBMI})!`;
+    console.log(whoHigherBMITemplate);//2
+
+</script>
+</html>
