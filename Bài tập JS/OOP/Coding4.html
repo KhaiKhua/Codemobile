@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Challenge #4</title>
+</head>
+<body>
+    
+</body>
+<script>
+    class Carcl{
+        constructor(make, speed){
+            this.make = make;
+            this.speed = speed;
+        }
+
+        brake(){
+            this.speed = this.speed - 5;
+            return this;
+        }
+    }
+
+    class EVCl extends Carcl{
+        #charge;
+        constructor(make, speed){
+            super(make, speed);
+            this.#charge = 0;
+        }
+
+        accelebrate(){
+            this.speed = this.speed + 10;    
+            return this;
+        }
+
+        getBatteryCurrent(){
+            return this.#charge;
+        }
+
+        chargeBattery(value){
+            this.#charge = value;
+            return this;
+        }
+    }
+
+    var car1 = new EVCl('Rivian' , 120);
+    console.log(car1)
+    car1.accelebrate()?.chargeBattery(90)?.brake();
+    console.log(car1.speed);
+    console.log(car1.getBatteryCurrent());
+   // car1.#ch
+    
+</script>
+</html>
