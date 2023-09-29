@@ -71,7 +71,7 @@ const style = StyleSheet.create({
         height: 150,
         marginTop: '20%',
         marginBottom:'10%',
-        backgroundColor: '#71E2FC',
+        backgroundColor: 'white',
     },
 
     input: {
