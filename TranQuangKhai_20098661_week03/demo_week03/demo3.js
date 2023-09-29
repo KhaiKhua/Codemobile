@@ -2,7 +2,8 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Button, img } from 'react-native';
 import { SafeAreaView } from 'react-native-web';
 import { Image } from 'react-native';
-
+import React from 'react';
+import { AiOutlineUser ,AiOutlineMail} from 'react-icons/ai';
 
 function Bai3() {
 
@@ -21,15 +22,19 @@ function Bai3() {
                 <p>Provide account's email for which you </p>
                 <br />
                 <p> want to reset your password </p>
+            </View  >
+            <View style={style.email}>
+                <input type='text' style={style.input} placeholder="Email">
+                </input>
+                <span style={{ position: 'absolute', left: '10px', top: '50%', transform: 'translateY(-50%)' }}>
+                    <AiOutlineMail size={16} />
+                </span>
             </View>
-            <input type='text' style={style.input}>
-              
-            </input>
             <View style={style.buton}>
                 <button style={{ color: 'black', background: '#F0C201', borderRadius: 5, width: '100%', fontWeight: 'bold' }} >NEXT</button>
-               
+
             </View>
-          
+
         </View>
 
     </SafeAreaView >
@@ -43,8 +48,13 @@ const style = StyleSheet.create({
         backgroundColor: '#71E2FC',
     },
 
+    email: {
+        flexDirection: 'row',
+        width: "80%"
+    },
 
     imag: {
+
         width: 150,
         height: 150,
         marginTop: '30%',
@@ -54,12 +64,15 @@ const style = StyleSheet.create({
         lineHeight: 0.1,
         alignItems: 'center',
         marginTop: 50,
-        fontWeight: 'bold' 
+        fontWeight: 'bold'
     },
-    input:{
-        width: '80%',
+    input: {
+        marginLeft: "1%",
+        width: '100%',
         height: 30,
-
+        borderRadius: 5,
+        backgroundColor: 'white',
+        paddingLeft: '30px'
     },
     buton: {
         marginTop: 10,
