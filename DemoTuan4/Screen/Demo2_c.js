@@ -6,44 +6,46 @@ import Checkbox from 'expo-checkbox';
 import { useState } from "react";
 
 export default function Demo2c(){
-    const [isCheckedLower, setCheckedLower] = useState(false);
-    const [isCheckedUpper, setCheckedUpper] = useState(false);
-    const [isCheckedNumber, setCheckedNumber] = useState(false);
-    const [isCheckedSpecial, setCheckedSpecial] = useState(false);
-    const [passWord, setText] = useState('');
-    const getLength = (text) => {
-        return text.length;
-    }
-
-    function checkAll(checkLower, checkUpper, checkNumerr, checkSpecial){
-        if(checkLower && checkUpper && checkNumerr && checkSpecial )
-            alert("GENERATE PASSWORD SUCCESS");
-        else
-            alert("FAIL");
-
-        
-        
-    }
-
-    function checkSpecialSymbol(str, isCheck){
-        var regex = /[ !@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/g;
-        return regex.test(str) && isCheck ? true : false;
-    }
-
-    function checkLowerCase(str, isCheck){
-        var regex = /[a-z]/g;
-        return regex.test(str) && isCheck ? true : false
-    }
+    const [pass, setpass] = useState('');
+    const [passwordLength, setPasswordLength] = useState(8);
+    const [includeLowercase, setIncludeLowercase] = useState(false);
+    const [includeUppercase, setIncludeUppercase] = useState(false);
+    const [includeNumbers, setIncludeNumbers] = useState(false);
+    const [includeSpecialSymbols, setIncludeSpecialSymbols] = useState(false);
+    const generatePassword = () => {
+        const lowercaseLetters = "abcdefghijklmnopqrstuvwxyz";
+        const uppercaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        const numbers = "0123456789";
+        const specialSymbols = "!@#$%^&*()_-+=<>?";
     
-    function checkUpperCase(str, isCheck){
-        var regex = /[A-Z]/g;
-        return regex.test(str) && isCheck ? true : false
-    }
+        let allowedCharacters = "";
+        if (includeLowercase) {
+          allowedCharacters += lowercaseLetters;
+        }
+        if (includeUppercase) {
+          allowedCharacters += uppercaseLetters;
+        }
+        if (includeNumbers) {
+          allowedCharacters += numbers;
+        }
+        if (includeSpecialSymbols) {
+          allowedCharacters += specialSymbols;
+        }
+    
+        let newPassword = "";
+        if(allowedCharacters=="" ) alert("cần chọn tiêu chí xuất password");
+        else{
+            
+            for (let i = 0; i < passwordLength; i++) {
+                const randomIndex = Math.floor(Math.random() * allowedCharacters.length);
+                newPassword += allowedCharacters[randomIndex];
+              }
+             
+              setpass(newPassword);
+        }
+        
+      };
 
-    function checkNumber(str, isCheck){
-        var regex = /[0-9]/g;
-        return regex.test(str) && isCheck ? true : false
-    }
 
     return(
         <View style={styles.container}>
@@ -56,7 +58,7 @@ export default function Demo2c(){
                 </View>
 
                 <View style={styles.center}>
-                    <TextInput style={styles.textCenter} onChangeText={setText}>
+                    <TextInput value={pass} style={styles.textCenter} >
 
                     </TextInput>
                 </View>
@@ -66,16 +68,16 @@ export default function Demo2c(){
                         <Text style={styles.text}>
                             Password length
                         </Text>
-                        <TextInput style={styles.passLength} keyboardType="number-pad">
+                        <TextInput  style={styles.passLength} keyboardType="number-pad" onChangeText={setPasswordLength}>
 
                         </TextInput>
                     </View>
 
-                    <View style={styles.row}>
-                        <Text style={styles.text}>
+                    <View style={styles.row} >
+                        <Text style={styles.text} >
                             Include lowercase letters
                         </Text>
-                        <CheckBox value={isCheckedLower} onValueChange={setCheckedLower}>
+                        <CheckBox value={includeLowercase} onValueChange={setIncludeLowercase} >
                         
                         </CheckBox>
                     </View>
@@ -84,7 +86,7 @@ export default function Demo2c(){
                         <Text style={styles.text}>
                             Include uppercase letters
                         </Text>
-                        <CheckBox value={isCheckedUpper} onValueChange={setCheckedUpper}>
+                        <CheckBox  value={includeUppercase} onValueChange={setIncludeUppercase}  >
                         
                         </CheckBox>
                     </View>
@@ -93,7 +95,7 @@ export default function Demo2c(){
                         <Text style={styles.text}>
                             Include number
                         </Text>
-                        <CheckBox value={isCheckedNumber} onValueChange={setCheckedNumber}>
+                        <CheckBox  value={includeNumbers} onValueChange={setIncludeNumbers}  >
                         
                         </CheckBox>
                     </View>
@@ -102,16 +104,12 @@ export default function Demo2c(){
                         <Text style={styles.text}>
                             Include special symbol
                         </Text>
-                       <CheckBox value={isCheckedSpecial} onValueChange={setCheckedSpecial}>
+                       <CheckBox  value={includeSpecialSymbols} onValueChange={setIncludeSpecialSymbols} >
                         
                        </CheckBox>
                     </View>
 
-                    <TouchableOpacity style={styles.gui} 
-                            onPress={() => checkAll(checkLowerCase(passWord, isCheckedLower)
-                                                  , checkUpperCase(passWord, isCheckedUpper)
-                                                  , checkNumber(passWord, isCheckedNumber)
-                                                  , checkSpecialSymbol(passWord,isCheckedSpecial))}>
+                    <TouchableOpacity style={styles.gui}   onPress={generatePassword}>
                         <Text style={{fontSize: '16px', fontWeight: '600', color: 'white'}}>
                             GENERATE PASSWORD
                         </Text>
@@ -127,7 +125,9 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: '#6633FF',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        width:'100%'
+       
     },
 
     main:{

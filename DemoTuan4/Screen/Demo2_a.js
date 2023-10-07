@@ -40,7 +40,7 @@ export default function Demo2a
                         
                     </TextInput>
                     <FontAwesome name="lock" size={30} color="black" style={{position: 'absolute', left: '20px', top: '80px'}} />
-                    <TextInput id="pass" placeholder="Password" secureTextEntry={!showPassword} style={styles.sameInput} >
+                    <TextInput id="pass" placeholder="Password" secureTextEntry={!showPassword} style={styles.sameInput}  onChangeText={setPassword}>
                             
                     </TextInput>
                     <AntDesign name="eye" size={28} color="black" style={{position: 'absolute', right: '20px', top: '80px'}} onPress={() => viewPassword()}/>
@@ -66,7 +66,9 @@ export default function Demo2a
 
 const styles = StyleSheet.create({
     container:{
-        flex: 1
+        flex: 1,
+        width:'100%'
+        
     },
 
     gradient:{
