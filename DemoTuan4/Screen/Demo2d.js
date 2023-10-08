@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity, ImageBackground,TextInput, Bu
 import { MaterialIcons } from "@expo/vector-icons";
 import { Feather, Entypo ,AntDesign, FontAwesome   } from '@expo/vector-icons';
 import Checkbox from 'expo-checkbox';
-import { useState } from "react";
+import { useState,useEffect } from "react";
 
 const image = {uri: 'https://salt.tikicdn.com/cache/w1200/ts/product/7a/5e/62/8a692ce25c7ed5778c5e2e72576a15cc.jpg'}
 
@@ -11,18 +11,14 @@ export default function Demo2d(){
     const [x,setx] = useState(0);
     const[Money,setMoney]= useState(0);
     function tang(){
-         
-        setx(x+1);
-        setMoney(x*141800) ;
-     
+        setx(x+1);       
       }
     function giam(){
         if(x>0) setx(x-1);
-        setMoney(x*141800) ;
     }
-   
-       
-    
+    useEffect(()=>{
+        setMoney(x*141800) 
+    },[x])
     return(
         <View style={styles.container}>
             <View style={styles.top}>
@@ -40,12 +36,12 @@ export default function Demo2d(){
                         <Text style={{fontSize: '17px', fontWeight: '700', color: '#EE0000'}}>141.800 đ</Text>
                         <Text style={{textDecorationLine: 'line-through', color: 'gray'}}>141.800 đ</Text>
                         <View style={styles.top_1_1_2}>
-                            <TouchableOpacity style={{backgroundColor: 'gray', width: '20px', height: '20px', justifyContent: 'center'}}>
-                                <Text style={{justifyContent: 'center', textAlign: 'center'}} onPress={() =>giam()}>- </Text>
+                            <TouchableOpacity style={{backgroundColor: 'gray', width: '20px', height: '20px', justifyContent: 'center'}}  onPress={() =>{giam()}}>
+                                <Text style={{justifyContent: 'center', textAlign: 'center'}}>- </Text>
                             </TouchableOpacity>
                             <Text > {x} </Text>
-                            <TouchableOpacity style={{backgroundColor: 'gray', width: '20px', height: '20px'}} onPress={() =>tang()}> 
-                                <Text>+</Text>
+                            <TouchableOpacity style={{backgroundColor: 'gray', width: '20px', height: '20px'}} onPress={() =>{tang()}}> 
+                                <Text  style={{justifyContent: 'center', textAlign: 'center'}}>+</Text>
                             </TouchableOpacity>
                             <Text style={{fontSize: '13px', fontWeight: '700',marginLeft:90, color:'blue'}}>Mua sau</Text>
                             <View>
@@ -59,10 +55,10 @@ export default function Demo2d(){
                     <Text style={{fontSize: '14px', fontWeight: '700',color:'blue', marginLeft: '25px'}}>Xem tại đây</Text>
                 </View>
                 <View style={styles.top_row}>
-                    <TouchableOpacity style={{height:30,width:150, justifyContent:'center',flexDirection: 'row', }}  >
+                    <View style={{height:30,width:150, justifyContent:'center',alignItems:'center',flexDirection: 'row', borderWidth: 1, borderColor: 'blue', borderRadius: 2 }}  >
                        <TouchableOpacity style={{backgroundColor:'yellow',height:20,width:40}}></TouchableOpacity>
                         <Text style={{ fontWeight: 'bold'}}>  Mã giảm giá</Text>
-                    </TouchableOpacity>
+                    </View>
                     <TouchableOpacity style={{backgroundColor:'blue',height:30,width:70, justifyContent:'center',alignItems: 'center'}}>
                         <Text style={{color:'white', fontWeight: 'bold'}}>Áp dụng</Text>
                     </TouchableOpacity>
@@ -134,20 +130,22 @@ const styles = StyleSheet.create({
         flexDirection: 'row',    
         marginTop:'30px',
         backgroundColor: 'white',
+        
     },
     top_row2:{
         flexDirection: 'row',     
-        marginTop:'50px',
+        marginTop:'20px',
         backgroundColor: 'white',
-        height:'100px',
+        height:'80px',
         justifyContent:'space-between'
     
     },
     top_rowbuton:{
         flexDirection: 'row',     
         backgroundColor: 'white',
-        height:'100px',
-        justifyContent:'space-between'
+        height:'80px',
+        justifyContent:'space-between',
+        marginTop:'70px',
     
     },
 
