@@ -1,14 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
-import { ImageBackground, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { ImageBackground, Pressable, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import React, { useState } from "react";
 import { Entypo} from '@expo/vector-icons';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-export default function Sceen3a() {
-    const imgblack ={uri:'https://cdn2.cellphones.com.vn/insecure/rs:fill:0:358/q:80/plain/https://cellphones.com.vn/media/catalog/product/j/o/joy-3-1_7.png'};
-    const imgbred ={uri:''}
-    const imgwhite ={uri:''}
-    const imggreen ={uri:''}
-    const DAU =">";
+
+export default function Sceen3a({ navigation}) {
+  const DAU =">";
+  const imgblack = { uri: 'https://cdn2.cellphones.com.vn/x/media/catalog/product/j/o/joy-3-4g-den.jpg' };
+   
   return (
     <View style={styles.container}>
      <ImageBackground source={imgblack} style={styles.img} resizeMode='contain' ></ImageBackground>
@@ -16,7 +17,7 @@ export default function Sceen3a() {
      <Text style={{fontSize: '16px', textAlign: 'left',paddingLeft:'15px', paddingTop: '7px'}}>Điện thoại Vsmart Joy 3 - Hàng chính hãng</Text>
         <View style={styles.row}>
             <View style={styles.start}>
-            {[...Array(5)].map((star, index) => {return(
+            {[...Array(5)].map(() => {return(
                                 <Entypo name="star" size={30} color= 'yellow'/>)})}
             </View>
             <Text style={{fontSize: '16px', textAlign: 'left',paddingLeft:'15px', paddingTop: '7px'}}> (Xem 828 đánh giá)</Text>
@@ -29,11 +30,12 @@ export default function Sceen3a() {
             <Text style={{fontSize: '14px',fontWeight:'bold' , textAlign: 'left',paddingLeft:'15px', paddingTop: '15px',color:'red'}}> Ở ĐÂU RẺ HƠN HOÀN TIỀN </Text>
             <ImageBackground source={require("../Image/icon.png")} style={styles.icon} ></ImageBackground>
             </View>
-         <TouchableOpacity style={styles.form4color}> 
-            <Text style={{fontSize: '16px', textAlign: 'center'}}>4 MÀU-CHỌN MÀU </Text>
+         <TouchableOpacity style={styles.form4color} onPress={()=>navigation.navigate('Screen3b')}>
+ 
+            <Text style={{fontSize: '16px', textAlign: 'center'}} >4 MÀU-CHỌN MÀU </Text>
             <Text style={{fontSize: '40px',left:'70px'}}>{DAU} </Text> 
          </TouchableOpacity>
-         <TouchableOpacity style={styles.button} onPress={()=>alert('đã đặt mua')}>
+         <TouchableOpacity style={styles.button} onPress={()=>alert('đặt hàng thành công')} >
             <Text style={{color:'white',fontSize:'20px',fontWeight:'bold'}}>CHỌN MUA </Text>
         </TouchableOpacity>
      </View>
