@@ -1,18 +1,26 @@
 import { StatusBar } from 'expo-status-bar';
 import { ImageBackground, Pressable, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Entypo} from '@expo/vector-icons';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 
-export default function Sceen3a({ navigation}) {
+export default function Sceen3a({ navigation,route}) {
   const DAU =">";
-  const imgblack = { uri: 'https://cdn2.cellphones.com.vn/x/media/catalog/product/j/o/joy-3-4g-den.jpg' };
-   
+  
+  const [Img,setImg]= useState({uri: 'https://cdn2.cellphones.com.vn/x/media/catalog/product/j/o/joy-3-4g-den.jpg'});
+  useEffect(() => {
+    if (route.params && route.params.link) {
+      // Kiểm tra xem route.params.link tồn tại và có giá trị
+      setImg({ uri: route.params.link });
+    }
+  }, [route.params]);
+ 
+  
   return (
     <View style={styles.container}>
-     <ImageBackground source={imgblack} style={styles.img} resizeMode='contain' ></ImageBackground>
+     <ImageBackground source={Img} style={styles.img} resizeMode='contain' ></ImageBackground>
      <View > 
      <Text style={{fontSize: '16px', textAlign: 'left',paddingLeft:'15px', paddingTop: '7px'}}>Điện thoại Vsmart Joy 3 - Hàng chính hãng</Text>
         <View style={styles.row}>
@@ -35,8 +43,8 @@ export default function Sceen3a({ navigation}) {
             <Text style={{fontSize: '16px', textAlign: 'center'}} >4 MÀU-CHỌN MÀU </Text>
             <Text style={{fontSize: '40px',left:'70px'}}>{DAU} </Text> 
          </TouchableOpacity>
-         <TouchableOpacity style={styles.button} onPress={()=>alert('đặt hàng thành công')} >
-            <Text style={{color:'white',fontSize:'20px',fontWeight:'bold'}}>CHỌN MUA </Text>
+         <TouchableOpacity style={styles.button} onPress={()=>alert("dat hàng thành công")} >
+            <Text style={{color:'white',fontSize:'20px',fontWeight:'bold'}} >CHỌN MUA </Text>
         </TouchableOpacity>
      </View>
     

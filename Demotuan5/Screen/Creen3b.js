@@ -50,7 +50,7 @@ export default function Screen3b({ navigation}) {
                         <TouchableOpacity style={{ backgroundColor: 'black', width: '90px', height: '90px', marginTop: '10px' }} onPress={() => { setImg(imgblack); setShowView(true) }}></TouchableOpacity>
                         <TouchableOpacity style={{ backgroundColor: 'blue', width: '90px', height: '90px', marginTop: '10px' }} onPress={() => { setImg(imggreen); setShowView(true) }}></TouchableOpacity>
                     </View >
-                    <TouchableOpacity style={styles.button} onPress={() => { navigation.navigate('Screen3a') }}>
+                    <TouchableOpacity style={styles.button} onPress={() => { navigation.navigate('Screen3a',{link:img.uri}) }}>
                         <Text style={{ color: 'white', fontSize: '20px', fontWeight: 'bold' }}>XONG</Text>
                     </TouchableOpacity>
                 </View>
