@@ -12,14 +12,14 @@ export default function Screena({navigation}) {
           id: 1,
           name: 'Ca nấu lẩu, nấu mì mini...',
           shop: 'Devang',
-          image: require('../assets/xa_can_cau.png'),
+          image: require('../assets/ca.png'),
           
         },
         {
           id: 2,
           name: '1KG KHÔ GÀ BƠ TỎI ...',
           shop: 'LTD Food',
-          image: require('../assets/xa_can_cau.png'),
+          image: require('../assets/ga_bo_toi.png'),
           
 
         },
@@ -34,28 +34,28 @@ export default function Screena({navigation}) {
           id: 4,
           name: 'Đồ chơi dạng mô hình',
           shop: 'Thế giới đồ chơi',
-          image: require('../assets/xa_can_cau.png'),
+          image: require('../assets/dochoi.png'),
        
         },
         {
           id: 5,
           name: 'Lãnh đạo giản đơn',
           shop: 'Minh Long Book',
-          image: require('../assets/xa_can_cau.png'),
+          image: require('../assets/ga_bo_toi.png'),
           
         },
         {
           id: 6,
           name: 'Hiểu lòng con trẻ',
           shop: 'Minh Long Book',
-          image: require('../assets/xa_can_cau.png'),
+          image: require('../assets/hieulong.png'),
          
         },
         {
           id: 7,
           name: 'Donald Trump Thiên tài lãnh đạo',
           shop: 'Minh Long Book',
-          image: require('../assets/xa_can_cau.png'),
+          image: require('../assets/ca.png'),
           
         },
       ])
@@ -75,7 +75,7 @@ export default function Screena({navigation}) {
                     <Text >{item.name}</Text>
                     <Text style={{color:item.id == 1 ? 'red' : '#7d5b5b',}}>{item.shop}</Text>
                 </View>
-                <TouchableOpacity onPress={()=>{navigation.navigate('Screenb')}} style={{backgroundColor:"red",height:50,width:50,justifyContent:'center',alignItems:'center',}}  >
+                <TouchableOpacity onPress={()=>{navigation.navigate('Screenb')}} style={{backgroundColor:"red",height:50,width:50,justifyContent:'center',borderRadius:5,alignItems:'center',}}  >
                   <Text style={{color:'white'}}>CHAT </Text>
                 </TouchableOpacity>
             </View>
