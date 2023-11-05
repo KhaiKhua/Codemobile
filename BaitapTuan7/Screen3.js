@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity } from 'react-native';
 import { useEffect, useState } from 'react';
-export default function Screen3({route,navigation}) {
+export default function Screen3({navigation}) {
   const [gioHang, setGioHang] = useState([])
   const [data, setData] = useState([
     {
@@ -64,7 +64,7 @@ export default function Screen3({route,navigation}) {
 
     }
     setGioHang(gioHang)
-    console.log(gioHang)
+   
 
   }
   return (
